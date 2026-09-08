@@ -1,4 +1,4 @@
-# Weather Bull 🌤️
+# Weather App 🌤️
 
 A modern, responsive and professional weather dashboard built using:
 
