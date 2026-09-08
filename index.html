@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Weather Bull — a modern 3D weather dashboard powered by OpenWeather."
+    >
+
+    <title>Weather Bull — Smart Weather</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="background">
+        <div class="orb orb-one"></div>
+        <div class="orb orb-two"></div>
+        <div class="orb orb-three"></div>
+        <div class="grid"></div>
+    </div>
+
+    <main class="app">
+
+        <!-- HEADER -->
+        <header class="header">
+
+            <div class="brand">
+                <div class="brand-icon">WB</div>
+
+                <div>
+                    <h1>Weather Bull</h1>
+                    <p>Smart weather intelligence</p>
+                </div>
+            </div>
+
+            <button
+                class="location-button"
+                id="locationButton"
+                type="button"
+                aria-label="Use current location"
+            >
+                <span>⌖</span>
+                <span>My Location</span>
+            </button>
+
+        </header>
+
+
+        <!-- SEARCH -->
+        <section class="search-section">
+
+            <form id="searchForm" class="search-box">
+
+                <span class="search-icon">⌕</span>
+
+                <input
+                    id="cityInput"
+                    type="text"
+                    placeholder="Search city..."
+                    autocomplete="off"
+                    spellcheck="false"
+                    aria-label="Search city"
+                >
+
+                <button
+                    id="searchButton"
+                    type="submit"
+                    aria-label="Search weather"
+                >
+                    Search
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- STATUS -->
+        <div id="status" class="status" aria-live="polite"></div>
+
+
+        <!-- WEATHER DASHBOARD -->
+        <section id="weatherDashboard" class="dashboard hidden">
+
+            <!-- MAIN WEATHER CARD -->
+            <article class="weather-card main-card">
+
+                <div class="weather-top">
+
+                    <div>
+                        <p class="eyebrow">CURRENT WEATHER</p>
+
+                        <h2 id="locationName">--</h2>
+
+                        <p id="currentDate" class="date">--</p>
+                    </div>
+
+                    <div id="weatherIcon" class="weather-icon">
+                        ☁
+                    </div>
+
+                </div>
+
+
+                <div class="temperature-container">
+
+                    <span id="temperature" class="temperature">
+                        --°
+                    </span>
+
+                    <div class="temperature-details">
+
+                        <span id="weatherDescription">
+                            --
+                        </span>
+
+                        <span>
+                            Feels like
+                            <strong id="feelsLike">--°</strong>
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="range">
+
+                    <span>
+                        ↑ <strong id="maxTemperature">--°</strong>
+                    </span>
+
+                    <span>
+                        ↓ <strong id="minTemperature">--°</strong>
+                    </span>
+
+                </div>
+
+            </article>
+
+
+            <!-- WEATHER METRICS -->
+            <div class="metrics-grid">
+
+                <article class="metric-card">
+
+                    <div class="metric-icon">💧</div>
+
+                    <div>
+                        <p>Humidity</p>
+                        <strong id="humidity">--%</strong>
+                    </div>
+
+                </article>
+
+
+                <article class="metric-card">
+
+                    <div class="metric-icon">💨</div>
+
+                    <div>
+                        <p>Wind Speed</p>
+                        <strong id="windSpeed">-- m/s</strong>
+                    </div>
+
+                </article>
+
+
+                <article class="metric-card">
+
+                    <div class="metric-icon">◉</div>
+
+                    <div>
+                        <p>Pressure</p>
+                        <strong id="pressure">-- hPa</strong>
+                    </div>
+
+                </article>
+
+
+                <article class="metric-card">
+
+                    <div class="metric-icon">◌</div>
+
+                    <div>
+                        <p>Visibility</p>
+                        <strong id="visibility">-- km</strong>
+                    </div>
+
+                </article>
+
+
+                <article class="metric-card">
+
+                    <div class="metric-icon">☀</div>
+
+                    <div>
+                        <p>Sunrise</p>
+                        <strong id="sunrise">--:--</strong>
+                    </div>
+
+                </article>
+
+
+                <article class="metric-card">
+
+                    <div class="metric-icon">◐</div>
+
+                    <div>
+                        <p>Sunset</p>
+                        <strong id="sunset">--:--</strong>
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- EMPTY STATE -->
+        <section id="emptyState" class="empty-state">
+
+            <div class="empty-icon">☁</div>
+
+            <h2>Discover the weather</h2>
+
+            <p>
+                Search for a city to see real-time weather conditions,
+                atmospheric data and more.
+            </p>
+
+        </section>
+
+
+        <!-- LOADING -->
+        <div id="loader" class="loader hidden">
+
+            <div class="spinner"></div>
+
+            <p>Getting weather data...</p>
+
+        </div>
+
+
+        <!-- FOOTER -->
+        <footer>
+
+            <p>
+                Weather Bull
+                <span>•</span>
+                Powered by OpenWeather
+            </p>
+
+        </footer>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
